@@ -1,0 +1,53 @@
+<h2>Here is History of {{userinfo.bits_id}}</h2>
+
+<table>
+<tr>
+<th>Name</th>
+<th>Bits Id</th>
+<th>Max Count</th>
+<th>Current Count</th>
+<th>Status (inactive/active)</th>
+</tr>
+
+<tr>
+<td> {{userinfo.name}}</td>
+<td> {{userinfo.bits_id}}</td>
+<td> {{userinfo.max_count}}</td>
+<td> {{userinfo.current_count}}</td>
+<td> {{userinfo.inactive_status}}</td>
+</tr>
+
+</table>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<table>
+
+<tr>
+<th>Month</th>
+<th>Cumulative Month Freqeuncy</th>
+<th>TimeStamp</th>
+<th>Penalty</th>
+<th>Machine Number</th>
+<th>Machine State</th>
+<th>Last Used</th>
+</tr>
+
+{% for i in datacoming %}
+
+<tr>
+<td>{{i.month}}</td>
+<td><pre>       </pre>{{i.count}}</td>
+<td>{{i.time_stamp}}</td>
+<td>{{i.cost}}</td>
+<td>{{i.machine_number}}</td>
+<td>{{i.machine_state}}</td>
+<td>{{i.last_used}}</td>
+</tr>
+{% endfor %}
+
+</table>

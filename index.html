@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+	<link rel="shortcut icon" href="{% static 'laundry/favicon.ico' %}" type="image/png">
+	<title>BPDC Laundry</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+
+ 
+	<link rel="stylesheet" type="text/css" href ="{% static 'laundry/util.css' %}"/>
+	<link rel="stylesheet" type="text/css" href ="{% static 'laundry/main.css' %}"/>
+	<link rel="stylesheet" type="text/css" href ="{% static 'laundry/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href ="{% static 'laundry/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href ="{% static 'laundry/icon-font.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href ="{% static 'laundry/animate.css' %}"/>
+	<link rel="stylesheet" type="text/css" href ="{% static 'laundry/hamburgers.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href ="{% static 'laundry/animsition.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href ="{% static 'laundry/select2.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href ="{% static 'laundry/daterangepicker.css' %}"/>
+
+
+<!--
+
+<link rel="stylesheet" type="text/css" href ='/static/laundry/util.css'/>
+<link rel="stylesheet" type="text/css" href ='/static/laundry/main.css'/>
+<link rel="stylesheet" type="text/css" href ='/static/laundry/font-awesome.min.css'/>
+<link rel="stylesheet" type="text/css" href ='/static/laundry/icon-font.min.css'/>
+<link rel="stylesheet" type="text/css" href ='/static/laundry/animate.css'/>
+<link rel="stylesheet" type="text/css" href ='/static/laundry/hamburgers.min.css'/>
+<link rel="stylesheet" type="text/css" href ='/static/laundry/animsition.min.css'/>
+<link rel="stylesheet" type="text/css" href ='/static/laundry/select2.min.css'/>
+<link rel="stylesheet" type="text/css" href ='/static/laundry/daterangepicker.css'/>
+	
+-->
+
+<script>
+	
+	function sendemail()
+	{
+ console.log('I was invoked ..')
+ 
+	var bitsId = document.getElementsByName("Username")[0].value;
+	if (bitsId =="")
+	{
+	alert ('enter your BITS-ID First then click.');
+	}
+
+	else
+	{
+	
+	$.ajax({
+type: 'get',
+    url: '/laundry/forgot/',
+    contentType: 'application/json; charset=utf-8', //EDITED
+    
+	//data: JSON.stringify(obj),
+    
+	data:{
+	Username: bitsId
+			
+			},
+	success: function(data) {
+  //       $('body').html(data); //EDITED
+    },
+    error: function(rs, e) {     
+         alert(rs.responseText);                
+    }
+});
+	
+	
+	alert ('check bits mail')
+	
+	
+	}
+	
+	
+	
+	}
+	
+	</script>
+
+
+
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-50 p-b-90">
+				<form class="login100-form validate-form flex-sb flex-w" action ="/laundry/validation/" method="post">
+					{% csrf_token %}
+					<span class="login100-form-title p-b-51">
+						BPDC Laundry
+					</span>
+
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
+						<input class="input100" type="text" name="Username" placeholder="BITS-ID">
+						<span class="focus-input100"></span>
+					</div>
+					
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<input class="input100" type="password" name="Password" placeholder="Password">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="flex-sb-m w-full p-t-3 p-b-24">
+						
+						
+						<div>
+							<a href="/laundry/#" class="txt1" onclick ="sendemail()">
+								Forgot Password? Type ID and click
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn m-t-17">
+						<button class="login100-form-btn" type="Submit">
+							Login
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+
+
+</body>
+</html>

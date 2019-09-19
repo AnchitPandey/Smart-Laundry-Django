@@ -1,0 +1,375 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="csrf-token" content="{% csrf_token %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+<style>
+
+
+ .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+
+
+
+
+
+<!--
+<script type="text/javascript" src="{% static 'laundry/naya.js' %}"></script >
+<script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+-->
+<script type="text/javascript">
+
+
+var a = "{{userinfo.name}}";
+
+/*
+$("#clicker").click(function(){
+console.log ('bitch!!');
+
+var x = document.getElementById("labla");
+x.innnerHtml = "okay"
+    values = [1, 2];
+/*   
+   $.ajax({
+        url: postUrl,
+        data: {'terid': values},
+        dataType: 'json',
+        success: function(result){
+           // $('#ingredients').append(result);
+        
+			
+			}
+    });     
+
+
+
+	});
+*/
+
+function yo()
+{
+console.log("fool");
+//alert(a);
+}
+
+
+function hello()
+{
+//console.log("hello");
+//alert(a);
+}
+
+
+function callme()
+{
+
+retval =  confirm ("Activate confirm ?");
+
+if(retval ==true)
+{
+alert('activated');
+var variable = document.getElementById("idd").value;
+
+/*
+
+var xhr = new XMLHttpRequest();
+var url = "/laundry/handler/";
+xhr.open("GET", url, true);
+xhr.setRequestHeader("Content-type", "application/json");
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        var json = JSON.parse(xhr.responseText);
+		alert(json);
+        //console.log(json.email + ", " + json.password);
+    }
+};
+//var data = JSON.stringify({"machine_number":variable});
+var data = variable;
+alert(data);
+xhr.send(data);
+//window.location.href = "/laundry/handler/";
+*/
+
+/*
+var postUrl = "/laundry/handler/";
+$("#clicker").click(function(){
+//console.log ('bitch!!');
+
+var x = document.getElementById("labla");
+x.innnerHtml = "okay"
+    values = [1, 2];
+   
+   $.ajax({
+        url: postUrl,
+        data: {'terid': values},
+        dataType: 'json',
+        success: function(result){
+           // $('#ingredients').append(result);
+        
+			
+			}
+    });     
+
+
+
+	});
+
+	*/
+
+
+
+//window.location.replace("/laundry/handler/");
+
+}
+
+}
+
+document.getElementById('clicker').disabled = false;
+function passchange()
+{
+console.log('User id is: ');
+var user_id = document.getElementById('crazyy').getAttribute('data');
+console.log(user_id);
+var new_pass = prompt('new password');
+
+if (new_pass!='' && new_pass!=null)
+{
+console.log ('ajax invoked');
+$.ajax({
+
+type: 'get',
+    url: '/laundry/pass_change/',
+    contentType: 'application/json; charset=utf-8', //EDITED
+    
+	//data: JSON.stringify(obj),
+    
+	data:{new_pass: (new_pass),
+			datas_obj: user_id
+			
+			},
+	success: function(data) {
+  //       $('body').html(data); //EDITED
+    },
+    error: function(rs, e) {     
+         alert(rs.responseText);                
+    }
+});
+
+}
+
+}
+
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+
+
+function testing()
+{
+var con = confirm('Activate sure?');
+
+if (con ==true)
+{
+
+document.getElementById("clicker").disabled  =true;
+console.log ("I was called!!")
+$("button").click(function(){
+    $("button").off("click");
+});
+
+var current_count = parseInt({{userinfo.current_count}})
+var max_count = parseInt({{userinfo.max_count}})
+
+//coster =  {{data.cost}}
+//console.log("coster value is:")
+//console.log(coster);
+//var truth;
+if (current_count == max_count)
+{
+alert ("You have reached your max limit. Please contact Admin for reactivation");
+}
+//if (truth == true || coster ==0)
+else
+{
+
+var report_array = new Array();
+console.log("Function working !!")
+report_arr = document.getElementById("idd").value;
+console.log (typeof report_arr);
+report_array.push(report_arr);
+var obj = {'report_array': report_array}
+$.ajax({
+type: 'get',
+    url: '/laundry/handler/',
+    contentType: 'application/json; charset=utf-8', //EDITED
+    	data:{pins: parseInt(report_arr)},
+	success: function(data) {
+    },
+    error: function(rs, e) {     
+         alert(rs.responseText);                
+    }
+});
+console.log("indeed !!")
+
+
+}
+
+sleep(6000);
+$("button").click(function(){
+    $("button").on("click");
+});
+
+}
+}
+
+</script>  
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">BPDC Laundry</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Refresh</a></li>
+        <li><a onclick ="passchange()" href="#" data="{{userinfo.bits_id}}" id="crazyy">Change password</a></li>
+        </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/laundry/session1"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Hello {{userinfo.name}}! </h1>      
+   <p>These are the latest stats I could pick from the db</p>
+  </div>
+</div>
+  
+<div class="container-fluid bg-3 text-center">    
+  <h3>Some stats:</h3>
+  <div class ="container text-center">
+  <pre>
+  <font size="3"><b>Your limit this sem:</b></font> {{userinfo.max_count}}
+ <font size ="3"><b> No of times used in this sem:</b></font> {{userinfo.current_count}}
+ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size="3"><b> Last used:</b> </font>{{data.time_stamp}}
+</pre> 
+ </div>
+  <br><br><br>
+  
+  <div class="row">
+    <div class="col-sm-3">
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <button type="button" class="btn btn-primary btn-lg" onclick ="testing()" id="clicker">Activate Machine</button>
+	 <br><br>
+    </div>
+    <div class="col-sm-3"> 
+ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="btn btn-secondary btn-lg" onClick="location.href ='/laundry/rpi1';">Machine list</button>
+<br><br>
+<p></p>
+    </div>
+    <div class="col-sm-3"> 
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <button type="button" class="btn btn-primary btn-lg" onClick="location.href = '/laundry/history';">Usage History</button>
+	 <br><br>
+ 
+    </div>
+
+  </div>
+</div><br>
+
+
+<footer class="container-fluid text-center">
+  <p>Machine list will appear here once you click "Machines List"</p>
+  
+  {% if pin_numbers%}
+  
+	<select name="lister" id="idd">
+	
+	{% for i in pin_numbers %}
+	<option value ="{{i}}">Machine {{i}}</option>
+	{% endfor %}
+		</select>
+	{% endif %}
+  
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

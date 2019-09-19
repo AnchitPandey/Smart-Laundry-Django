@@ -1,0 +1,281 @@
+<meta name="csrf-token" content="{% csrf_token %}">
+<script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+function disableME()
+{
+blocked_machines_a_block =[]
+blocked_machines_h_block = [] 
+
+
+var cblock_machines = document.getElementsByName("boys_machine"); 
+var  hblock_machines = document.getElementsByName("girls_machine");
+var numberOfCheckedItems = 0;  
+
+    for(var i = 0; i < cblock_machines.length; i++)  
+        {  
+                if(cblock_machines[i].checked)  
+                        blocked_machines_a_block.push(cblock_machines[i].value);						
+        
+		}  
+      
+
+for (var i= 0;i < blocked_machines_a_block.length;i++)
+{
+console.log(blocked_machines_a_block[i]);
+}
+	  
+	for(var i = 0; i < hblock_machines.length; i++)  
+        
+		{  
+                if(hblock_machines[i].checked)  
+                        blocked_machines_h_block.push(hblock_machines[i].value);						
+        
+		}  
+        
+	var x = 10;	
+			
+$.ajax({
+
+	type: 'get',
+    url: '/laundry/advalidation/',
+    contentType: 'application/json; charset=utf-8', //EDITED
+    
+	//data: JSON.stringify(obj),
+    
+	data:{
+	'blocked_machines_a_block': blocked_machines_a_block,
+	'blocked_machines_h_block': blocked_machines_h_block
+	//'x':x
+	
+	},
+	success: function(data) {
+  //       $('body').html(data); //EDITED
+    },
+    error: function(rs, e) {     
+         alert(rs.responseText);                
+    }
+
+});
+
+
+}
+
+
+
+function reset_for_new_sem()
+{
+
+$.ajax({
+
+	type: 'get',
+    url: '/laundry/resetting/',
+    contentType: 'application/json; charset=utf-8', //EDITED
+    
+	//data: JSON.stringify(obj),
+    
+	data:{
+	//'blocked_machines_a_block': blocked_machines_a_block,
+	//'blocked_machines_h_block': blocked_machines_h_block
+	//'x':x
+	
+	},
+	success: function(data) {
+  //       $('body').html(data); //EDITED
+    },
+    error: function(rs, e) {     
+         alert(rs.responseText);                
+    }
+
+});
+
+
+}
+
+</script>
+
+<h1>Hi Admin !!</h1>
+<br><br><br>
+
+<form action ="/laundry/generate/">
+{% csrf_token %}
+<input type="Submit" value="Generate Monthly usage for current students"> 
+</form>
+
+
+<form action ="/laundry/generate_for_staff/">
+{% csrf_token %}
+<input type="Submit" value="Generate Monthly usage for staff and visitors"> 
+</form>
+
+
+
+<form action ="/laundry/generate_for_inactive_students/">
+{% csrf_token %}
+<input type="Submit" value="Generate Monthly usage for inactive student"> 
+</form>
+
+
+
+
+
+
+<form action ='/laundry/add/' method="POST">
+
+<fieldset>
+
+{% csrf_token %}
+
+<legend>For Adding an account</legend>
+
+<h4>Enter ID </h4>
+<input type="text" name="id"/>
+<h4>Enter name</h4>
+<input type="text" name ="name"/>
+
+<h4>Enter Password</h4>
+<input type="Password" name ="password"/>
+
+<h4>Enter Gender (M/F)</h4>
+<input type="text" name ="gender"/>
+
+<h4> Enter usertype (student/staff/visitor) </h4>
+<input type="text" name ="usertype"/>
+
+<h4> Enter the Maximum count </h4>
+<input type="text" name ="max_count"/>
+
+<h4> inactive/active </h4>
+<input type="text" name ="inactive_status"/>
+
+<input type="Submit" name="add"/>
+
+
+</fieldset>
+
+</form >
+
+
+
+
+<form action ="/laundry/remove/"  method="POST">
+{% csrf_token %}
+
+<fieldset>
+
+<legend> For removing an account</legend>
+<h4>Enter ID</h4>
+<input type="text" name ="id"/>
+<input type="Submit" name ="remove"/>
+
+</fieldset>
+</form>
+
+
+<br>
+
+
+<form action = "/laundry/count_change/" method="POST">
+
+<fieldset>
+{% csrf_token %}
+<legend>For changing count</legend>
+<h4>Enter ID</h4>
+<input type="text" name ="id"/>
+<h4>Enter new count</h4>
+<input type="text" name ="counter"/>
+<input type="Submit" name ="change_count"/>
+</fieldset>
+
+</form>
+
+
+
+
+<form action ="/laundry/detaildisplay/" method = "POST" name="detail-form">
+	{% csrf_token %}
+<fieldset>
+	<legend>For searching an account</legend>
+	
+	<input type = "text" name ="det"/>
+<input type ="Submit" name="submit-pls"/>
+</fieldset>
+</form>
+
+<!--
+<form action ="/laundry/advalidation/" method = "GET" name="detail-form1">
+-->
+
+<p>   Boys machine    </p>
+<input type ="checkbox" name="boys_machine" value="1">Machine1<br>
+<input type ="checkbox" name="boys_machine" value="2">Machine2<br>
+<input type ="checkbox" name="boys_machine" value="3">Machine3<br>
+<input type ="checkbox" name="boys_machine" value="4">Machine4<br>
+<input type ="checkbox" name="boys_machine" value="5">Machine5<br>
+<input type ="checkbox" name="boys_machine" value="6">Machine6<br>
+<input type ="checkbox" name="boys_machine" value="7">Machine7<br>
+<input type ="checkbox" name="boys_machine" value="8">Machine8<br>
+<input type ="checkbox" name="boys_machine" value="9">Machine9<br>
+<input type ="checkbox" name="boys_machine" value="10">Machine10<br>
+
+<input type ="checkbox" name="boys_machine" value="11">drier1<br>
+<input type ="checkbox" name="boys_machine" value="12">drier2<br>
+<input type ="checkbox" name="boys_machine" value="13">drier3<br>
+<input type ="checkbox" name="boys_machine" value="14">drier4<br>
+<input type ="checkbox" name="boys_machine" value="15">drier5<br>
+<input type ="checkbox" name="boys_machine" value="16">drier6<br>
+<input type ="checkbox" name="boys_machine" value="17">drier7<br>
+<input type ="checkbox" name="boys_machine" value="18">drier8<br>
+<input type ="checkbox" name="boys_machine" value="19">drier9<br>
+<input type ="checkbox" name="boys_machine" value="20">drier10<br>
+
+<p>    Girls Machine    </p>
+<input type ="checkbox" name="girls_machine" value="1">Machine1<br>
+<input type ="checkbox" name="girls_machine" value="2">Machine2<br>
+<input type ="checkbox" name="girls_machine" value="3">Machine3<br>
+<input type ="checkbox" name="girls_machine" value="4">Machine4<br>
+<input type ="checkbox" name="girls_machine" value="5">Machine5<br>
+<input type ="checkbox" name="girls_machine" value="6">drier1<br>
+<input type ="checkbox" name="girls_machine" value="7">drier2<br>
+<input type ="checkbox" name="girls_machine" value="7">drier3<br>
+<input type ="checkbox" name="girls_machine" value="8">drier4<br>
+<input type ="checkbox" name="girls_machine" value="9">drier5<br>
+<br><br>
+<button onClick ="disableME()">Disable</button>
+<button onClick ="enableME()">Enable</button>
+
+
+<br><br>
+<label>Reset Account after every semester</label>
+<button onClick = "reset_for_new_sem()">Reset</button>
+<!-- </form>  -->
+
+
+
+<!--
+<h3> List of all penalty ids </h3>
+
+<table>
+
+<tr>
+<th>Month</th>
+<th>Cumulative Month Freqeuncy</th>
+<th>TimeStamp</th>
+<th>Penalty</th>
+<th>Last Used</th>
+</tr>
+
+
+{% for i in admindata %}
+
+<tr>
+<td>{{i.month}}</td>
+<td><pre>       </pre>{{i.count}}</td>
+<td>{{i.time_stamp}}</td>
+<td>{{i.cost}}</td>
+<td>{{i.last_used}}</td>
+</tr>
+{% endfor %}
+</table>
+
+-->

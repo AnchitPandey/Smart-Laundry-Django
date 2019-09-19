@@ -1,0 +1,26 @@
+<!-- All the files that are required -->
+
+{% load staticfiles %}
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{% static 'laundry/style1.css' %}">
+
+
+<div class = "container">
+	<div class="wrapper">
+		<form action="/laundry/advalidation/" method="post" name="Login_Form" class="form-signin">
+		{% csrf_token %}
+		
+		    <h3 class="form-signin-heading">BPDC Admin Login</h3>
+			  <hr class="colorgraph"><br>
+			  
+			  <input type="text" class="form-control" name="Username" placeholder="Username" required="" autofocus="" />
+			  <input type="password" class="form-control" name="Password" placeholder="Password" required=""/>     		  
+			 
+			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
+		</form>			
+	</div>
+</div>
