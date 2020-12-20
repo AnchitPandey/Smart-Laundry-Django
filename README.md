@@ -1,2 +1,2 @@
 # Smart-Laundry-Django
-Django code for laundry web app
+Code for laundry web app
