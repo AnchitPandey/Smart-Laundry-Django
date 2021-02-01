@@ -23,6 +23,6 @@ converts 5 to the binary 0101. Specific GPIO pins on raspberry pi are set to 1 a
 The app consists of 2 views. One for the end user and other for the admin. The figure shows the screen shot of app. After the user is logged in, he is shown his current data like the extra cost he incurs, number of times he has used in a semester and the last used timestamp. On clicking "Machine List" button, there is a dropdown at the bottom, Which only displays those machines that are currently unoccupied/free to use. This saves the user the effort to go to the laundromat when all machines are occupied. AJAX calls made every 1 min to Django server updates this dropdown. Once the user clicks on "Activate Machine" button, request to activate the specific machine is sent to the server which in turn sends request to the raspberry pi to activate the particular machine. The user can also view his usage history by clicking on "Usage History" button. He can further apply filter on the data to get specific usage. The user can also change his password and submit a forgot password request, which is handled by a python script sending the password link to user's email id.
 
 ![login1](https://user-images.githubusercontent.com/40236708/106418790-f43d2d80-640b-11eb-8df2-505b2926ce15.PNG)
-
-
+![main_page1](https://user-images.githubusercontent.com/40236708/106418871-1df65480-640c-11eb-8bf7-7d40e325e466.PNG)
+![usage1](https://user-images.githubusercontent.com/40236708/106418897-28b0e980-640c-11eb-99e7-b9bb9876ab3a.PNG)
 
