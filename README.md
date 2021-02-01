@@ -12,3 +12,8 @@ The image below shows the entire system of my project. It includes:
 
 ## Working of the System
 
+The figure below shows the working of the system. Initially, the user interacts with the app and clicks a button to activate the machine. For example, if user clicks machine 5, then this AJAX request along with the data "5" is sent to the server. The API on the server extracts the data and sends a request to Raspbery pi. Our code on the raspberry pi 
+converts 5 to the binary 0101. Specific GPIO pins on raspberry pi are set to 1 and that signal is then sent to the custom PCB via the 40 pin connector. The decoder mounted on the PCB decodes the signal and sends this to washing machine either getting the status of the machine or switching it on. 
+
+
+![inside1](https://user-images.githubusercontent.com/40236708/106417009-c2c26300-6407-11eb-8b66-cf9a5185e314.PNG)
