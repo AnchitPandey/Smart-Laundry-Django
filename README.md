@@ -17,3 +17,7 @@ converts 5 to the binary 0101. Specific GPIO pins on raspberry pi are set to 1 a
 
 
 ![inside1](https://user-images.githubusercontent.com/40236708/106417009-c2c26300-6407-11eb-8b66-cf9a5185e314.PNG)
+
+
+
+## Features of the App
