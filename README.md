@@ -1,4 +1,4 @@
-# Smart-Laundry-Django
+# Smart-Laundry-System
 
 ## Components of the project
 
