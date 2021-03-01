@@ -1,6 +1,6 @@
 # Smart-Laundry-System
 
-This was a team (team of 2) project where the aim was to operate our university's laundry machines (both washers and driers) via a web app. We presented this project at BCS ICT Programming Competiton 2018 and secured the 1st Place.
+In this project we aimed at operate our university's laundry machines (both washers and driers) via a web app. This was a team of 2 project. We presented this project at BCS ICT Programming Competiton 2018 and secured the 1st Place.
 Link (Keyword Search: "Laundry"): http://www.bcsconf.com/news/
 
 ## Components of the project
